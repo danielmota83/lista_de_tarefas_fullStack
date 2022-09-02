@@ -1,25 +1,22 @@
 import { Router } from 'express';
 
-import Database from './database/Database.js';
-import wait from './utils/wait.js';
-
 const router = Router();
 
-router.get('/posts', async (request, response) => {
+router.get('/tarefas', async (request, response) => {
   await wait();
 
-  const posts = await Database.all('SELECT * FROM posts');
-  response.json(posts);
+  const tarefas = await Database.all('SELECT * FROM tarefas');
+  response.json(tarefas);
 });
 
-router.get('/posts/most-viewed', async (request, response) => {
+router.get('/tarefas/most-viewed', async (request, response) => {
   await wait();
 
-  const posts = await Database.all('SELECT * FROM posts LIMIT 3');
-  response.json(posts);
+  const tarefas = await Database.all('SELECT * FROM tarefas LIMIT 3');
+  response.json(tarefas);
 });
 
-router.post('/posts', async (request, response) => {
+router.post('/tarefas', async (request, response) => {
   await wait();
 
   const { content, userName } = request.body;
@@ -34,7 +31,7 @@ router.post('/posts', async (request, response) => {
   }
 
   await Database.run(
-    'INSERT INTO posts(content, userName, publishedAt) VALUES(?, ?, ?)',
+    'INSERT INTO tarefas(content, userName, publishedAt) VALUES(?, ?, ?)',
     [content, userName, new Date().toISOString()],
   );
 
