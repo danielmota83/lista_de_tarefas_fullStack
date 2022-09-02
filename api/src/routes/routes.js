@@ -1,41 +1,12 @@
-import { Router } from 'express';
+import express from 'express';
+import taskController from '../controllers/tasks.controller';
 
-const router = Router();
+const router = express.Router();
 
-router.get('/tarefas', async (request, response) => {
-  await wait();
+router.get('/all-tasks', tasksController.allTasks);
+router.get('/all-tasks/:id', tasksController.taskById);
+router.post('/create-task', tasksController.createTask);
+router.put('/update-task/:id', tasksController.updateTaskById);
+router.delete('/delete-task/:id', tasksController.deleteTask);
 
-  const tarefas = await Database.all('SELECT * FROM tarefas');
-  response.json(tarefas);
-});
-
-router.get('/tarefas/most-viewed', async (request, response) => {
-  await wait();
-
-  const tarefas = await Database.all('SELECT * FROM tarefas LIMIT 3');
-  response.json(tarefas);
-});
-
-router.post('/tarefas', async (request, response) => {
-  await wait();
-
-  const { content, userName } = request.body;
-
-  if (!content || !userName) {
-    return response
-      .status(400)
-      .json({
-        code: '001',
-        error: 'The properties `content` and `userName` are required!',
-      });
-  }
-
-  await Database.run(
-    'INSERT INTO tarefas(content, userName, publishedAt) VALUES(?, ?, ?)',
-    [content, userName, new Date().toISOString()],
-  );
-
-  response.sendStatus(201);
-});
-
-export default router;
+export default router
