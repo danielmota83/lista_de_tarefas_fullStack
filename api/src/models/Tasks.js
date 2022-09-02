@@ -5,7 +5,7 @@ import 'mongoose';
         tarefa:{type: String, require: true},
         oQueFazer:{type: String, require: true},
         tipo:{type: String, require: true},
-        quado:{type: Date},
+        quando:{type: Date},
     }
 );
 
