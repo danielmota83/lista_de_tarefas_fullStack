@@ -1,0 +1,13 @@
+[
+    {"tarefa":"Estudar react",
+    "oQueFazer":"Estudar aplicação de hooks",
+    "tipo": "rotina",
+    "data": "10-09-22"
+},
+
+{"tarefa":"Trabalhar",
+"oQueFazer":"Aulas de tecnologia e educação de EEAL",
+"tipo": "rotina",
+"data": "10-09-22"
+}
+  ]

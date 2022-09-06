@@ -51,7 +51,7 @@ const allTasks = async (req, res) => {
     res.send(updatedTask);
   };
 
-  const deleteTaskById = async (req, res) => {
+  const deleteTask = async (req, res) => {
     const id = req.params.id;
   
     const chosenTask = await tasksService.taskById(id);
@@ -71,5 +71,5 @@ const allTasks = async (req, res) => {
     taskById,
     createTask,
     updateTaskById,
-    deleteTaskById,
+    deleteTask,
 }

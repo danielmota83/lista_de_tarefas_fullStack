@@ -1,6 +1,6 @@
 import express from 'express';
-import tasksController from '../controllers/tasks.controller';
-import { validId, validObjectBody } from '../middlewares/tasks.middleware';
+import tasksController from '../controllers/tasks.controller.js';
+import { validId, validObjectBody } from '../middlewares/tasks.middleware.js';
  
 const router = express.Router();
 

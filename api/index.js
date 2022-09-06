@@ -1,8 +1,8 @@
 import express from 'express';
-import  'cors';
+import  cors from 'cors';
 import 'dotenv/config';
-import connectToDb from './src/database/mongoDb';
-import taskroutes from './src/routes/routes';
+import connectToDb from './src/database/mongoDb.js';
+import taskroutes from './src/routes/routes.js';
 
 const app = express();
 app.use(express.json());

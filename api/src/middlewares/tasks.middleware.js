@@ -1,4 +1,4 @@
-import 'mongoose';
+import mongoose from "mongoose";
 
  export const validId = (req, res, next) =>{
     const id = req.params.id;
