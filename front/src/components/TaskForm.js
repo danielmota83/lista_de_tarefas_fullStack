@@ -18,7 +18,7 @@ export default function TaskForm(props) {
     setIsLoading(true);
     setErrorMessage (null);
 
-const response = await fetch("http://localhost:3001/tasks", {
+const response = await fetch("http://localhost:3001/create-task", {
   method: "POST",
   body: JSON.stringify({
     content: history,
@@ -49,6 +49,7 @@ if (!response.ok) {
       setIsLoading(false);
     };
      
+  };
 
   return (
     <form className="post-form" onSubmit={handleSubmit}>
@@ -80,4 +81,4 @@ if (!response.ok) {
       </div>
     </form>
   );
-}; }
+ }

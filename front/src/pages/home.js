@@ -51,7 +51,7 @@ useEffect(() =>{
           tasks={tasks}
           hasError = {hasError}
           title="Seu Feed"
-          subtitle="Acompanhe o que seus amigos estão pensando em tempo real"
+          subtitle="Acompanhe as suas tarefas em tempo real"
         />
       </main>
     </>
