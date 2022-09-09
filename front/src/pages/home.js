@@ -54,7 +54,7 @@ useEffect(() =>{
           tasks={tasks}
           hasError = {hasError}
           title="Suas Tarefas"
-          subtitle="Acompanhe as suas tarefas em tempo real"
+          subtitle="Acompanhe todas as suas tarefas de maneira organizada!"
         />
       </main>
     </>

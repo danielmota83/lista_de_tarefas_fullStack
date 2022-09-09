@@ -3,7 +3,8 @@ import "../styles/PostForm.css";
 import loader from "../images/loader-white.svg";
 import userIcon from "../images/user.svg";
 import paperPlaneIcon from "../images/paper-plane.svg";
-import {GiArchiveRegister }from 'react-icons/gi'
+import {GiArchiveRegister, GiAlarmClock, GiCardPick }from 'react-icons/gi'
+import {MdTitle }from 'react-icons/md'
 
 
 export default function TaskForm(props) {
@@ -65,27 +66,36 @@ if (!response.ok) {
           <strong>{errorMessage}</strong>
         </div>
       )}
+      
+      <div >
+      <MdTitle/>
+      
       <input
         value={tarefa}
         placeholder="Digite um título para a nova tarefa..."
         onChange={(event) => setTarefa(event.target.value)}
       />
-
+    </div>
+<div className="border">
+<GiArchiveRegister size={25}/>
 <input
         value={oQueFazer}
         placeholder="Descreva a tarefa a ser realizada..."
         onChange={(event) => setOQueFazer(event.target.value)}
       />
+      </div>
 
-      <div>
-        <GiArchiveRegister size={25}/>
-
+      <div className="border">
+        <GiAlarmClock size={25}/>
         <input
           value={quando}
           placeholder="Digite a data limite de realização..."
           onChange={(event) => setQuando(event.target.value)}
         />
-
+        </div>
+        
+        <div className="border">
+          <GiCardPick/>
         <input
           value={tipo}
           placeholder="tipo de tarefa está cadastrando..."
@@ -95,7 +105,7 @@ if (!response.ok) {
         <button type="submit" disabled={isLoading}>
           {!isLoading && <img src={paperPlaneIcon} alt="Paper plane" />}
           {isLoading && <img src={loader} alt="Loading" className="spin" />}
-          Publicar
+          Cadastrar
         </button>
       </div>
     </form>
