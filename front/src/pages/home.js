@@ -12,9 +12,11 @@ useEffect(() =>{
   async function loadTasks(){
     try {
       const tasksList =  await getTasksList();
+      console.log(tasksList)
 
-      if (!tasksList.ok){
-        setHasError(true);
+      if (tasksList.ok){
+        console.log('algum problema com os dados')
+        setHasError(false);
         return;
       }
 
@@ -29,13 +31,14 @@ useEffect(() =>{
 }, []);
 
 
-  function handleSubmit({ history, userName }) {
+  function handleSubmit({ tarefa, oQueFazer, tipo, quando }) {
     setTasks([
       ...tasks,
       {
-        id: Math.random(),
-        content: history,
-        userName,
+        tarefa: tarefa,
+        oQueFazer:oQueFazer,
+        tipo:tipo,
+        quando:quando,
         publishedAt: new Date(),
       },
     ]);
@@ -50,7 +53,7 @@ useEffect(() =>{
           isLoading={isLoading}
           tasks={tasks}
           hasError = {hasError}
-          title="Seu Feed"
+          title="Suas Tarefas"
           subtitle="Acompanhe as suas tarefas em tempo real"
         />
       </main>

@@ -1,10 +1,11 @@
-import userIcon from '../images/user.svg';
+
 import clockIcon from '../images/clock.svg';
 import emptyFolderIcon from '../images/empty-folder.svg';
 import loader from '../images/loader-primary.svg'
 import '../styles/Feed.css';
 import cloudErrorIcon from '../images/cloud-error.svg'
 import FeedStatus from './FeedStatus';
+import {GiArchiveRegister }from 'react-icons/gi'
 
 export default function Feed(props) {
   if(props.isLoading) {
@@ -36,19 +37,20 @@ if (props.hasError){
       </header>
 
       <section className="feed">
-        {props.posts.map((post) => (
-          <article key={post.id}>
-            <p>{post.content}</p>
+        {props.tasks.map((task) => (
+          <article key={task.id}>
+            <h1>{task.tarefa}</h1>
+            <p>{task.oQueFazer}</p>
 
             <footer>
               <div className="user-details">
-                <img src={userIcon} alt="User" />
-                <strong>{post.userName}</strong>
+                <GiArchiveRegister />
+                <strong>{task.tipo}</strong>
               </div>
 
               <div className="time">
                 <img src={clockIcon} alt="Clock" />
-                <span>Publicado em {post.publishedAt.toLocaleDateString('pt-br')}</span>
+                <span>Tarefa a ser realizada até: {task.quando}</span>
               </div>
             </footer>
           </article>

@@ -9,8 +9,8 @@ export default function App() {
     <div className="wrapper">
       <BrowserRouter>
         <nav>
-          <Link to="/">Feed de tarefas</Link>
-          <Link to="/importantes">Mais importantes</Link>
+          <Link to="/">FEED DE TAREFAS</Link>
+          <Link to="/importantes">MAIS IMPORTANTES</Link>
         </nav>
 
         <AppRoutes />

@@ -4,6 +4,7 @@ export   async function getTasksList() {
   const response = await fetch ('http://localhost:3001/all-tasks')
 
 if (!response.ok){
+  console.log("deu algum erro" )
     return false;
 }
 
@@ -11,8 +12,14 @@ const body = await response.json();
 
 return body.map((task)=>({
     ...task, 
+    id: task.id,
+    tarefa: task.tarefa,
+    oQueFazer: task.oQueFazer,
+    tipo: task.tipo,
+    quando: task.quando,
     publishedAt: new Date (task.publishedAt),
   }));
+
 }
 
 
