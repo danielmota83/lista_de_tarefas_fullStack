@@ -38,14 +38,29 @@ return body.map((task)=>({
   }));
 }
 
-/*export async function create(){
+export async function create(){
+  const body = await response.json();
 
+  return body.map((task)=>({
+      ...task, 
+      id: task.id,
+      tarefa: task.tarefa,
+      oQueFazer: task.oQueFazer,
+      tipo: task.tipo,
+      quando: task.quando,
+      publishedAt: new Date (task.publishedAt),
+    }));
+  
+  }
+  
 
 const response = await fetch("http://localhost:3001/tasks", {
 method: "POST",
 body: JSON.stringify({
-  content: history,
-  userName,
+  content: tarefa,
+  oQueFazer,
+  tipo,
+  quando
 }),
 Headers: {
   "Content-Type": "application/json",
@@ -58,10 +73,14 @@ const body = await response.json();
 setErrorMessage(
   errors[body.code] || 'Ocorreu um erro ao cadastrar o tarefa!'
 )
-return;
+
 }
 
-    props.onSubmit({ history, userName });
-    setHistory("");
-    setUserName("");
-} */
+    props.onSubmit({ tarefa, oQueFazer,tipo,quando });
+    tarefa("");
+    oQueFazer("");
+    tipo("");
+    quando("");
+    
+}
+ 
